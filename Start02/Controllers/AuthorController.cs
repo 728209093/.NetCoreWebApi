@@ -18,13 +18,16 @@ namespace Start02.Controllers
     {
 
 
+ 
         public readonly IConfiguration _configuration;
  
 
         public AuthorController(IConfiguration configuration)
         {
             _configuration = configuration;
-          
+
+            Console.Write("每次调用");
+
         }
 
 
