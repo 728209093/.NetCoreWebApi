@@ -72,6 +72,9 @@ SqlSugarSetup.Init(builder.Services);
 //});
 
 
+
+
+
 builder.Services.AddCors(policy =>
 {
 policy.AddPolicy("CorsPolicy", opt => opt
@@ -84,6 +87,9 @@ policy.AddPolicy("CorsPolicy", opt => opt
 
 
 var app = builder.Build();
+
+
+app.MapGet("/test", () => "OK");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

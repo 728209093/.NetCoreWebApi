@@ -19,12 +19,10 @@ namespace WebApplication1
             {
                 return new SqlSugarClient(new ConnectionConfig()
                 {
-                    ConnectionString = "Data Source=localhost;User ID=root;Password=root;Database=test;Allow User Variables=True;Charset=utf8;",//数据库连接字符串
+                    ConnectionString = "server=8.130.66.152;user id=root;password=2f4d40d259add6de;database=xiaoli;pooling=false;charset=utf8",//数据库连接字符串
                     DbType = DbType.MySql,//DbType支持Mysql、SqlServer、Sqlite、Oracle、PostgreSQL等多种数据库
                     IsAutoCloseConnection = true,//自动释放
                     InitKeyType = InitKeyType.Attribute
-
-
 
                 });
 
