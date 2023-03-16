@@ -122,7 +122,7 @@ namespace Start02.Controllers
 
             var str = string.Join("",tochararry);
 
- 
+  
 
             return str;
         }
