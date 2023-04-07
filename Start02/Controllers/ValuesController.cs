@@ -6,6 +6,7 @@ using WebApplication1;
 using Model;
 using Microsoft.AspNetCore.Authorization;
 using System.IdentityModel.Tokens.Jwt;
+using AutoMapper;
 
 namespace Start02.Controllers
 {
@@ -128,10 +129,7 @@ namespace Start02.Controllers
         }
 
 
-
-
-
-
+ 
 
         /// <summary>
         /// 重写方法
@@ -178,10 +176,10 @@ namespace Start02.Controllers
         public ActionResult<dynamic> Enqueue(string yuansu)
         {
 
+
             duilie.Enqueue(yuansu);
-
-
-            data<List<string>> data = new data<List<string>>();
+  
+        data<List<string>> data = new data<List<string>>();
  
 
             List<string> strings = new List<string>();
@@ -200,6 +198,44 @@ namespace Start02.Controllers
  
 
         }
+
+
+
+
+
+        /// <summary>
+        /// 获取学生的信息
+        /// </summary>
+        /// <returns>成功</returns>
+        [HttpGet("GetStudents")]
+        public ActionResult<dynamic> GetStudents(string id)
+        {
+
+
+            var test1 = new test();
+ 
+            //查询所有的数据信息
+            //var ret = SqlSugarSetup.db.Queryable<Model.db.students>().OrderBy(sc=>sc.t_id,OrderByType.Desc).First();
+
+            var ret = SqlSugarSetup.db.Queryable<Model.db.students>().OrderBy(sc => sc.t_id, OrderByType.Desc).ToList();
+
+            //test test2= Mapper.Map<test>(ret);
+
+
+
+            //查询指定的信息
+
+            var Onely = SqlSugarSetup.db.Queryable<Model.db.students>().Where(X => X.t_id == Int32.Parse(id)).FirstAsync();
+
+ 
+            return ret;
+ 
+  
+        }
+
+
+
+
 
     }
 }
